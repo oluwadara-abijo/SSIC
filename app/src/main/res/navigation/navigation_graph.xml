@@ -9,5 +9,17 @@
         android:id="@+id/facultiesFragment"
         android:name="ng.com.ssic.faculty.FacultiesFragment"
         android:label="fragment_faculties"
-        tools:layout="@layout/fragment_faculties" />
+        tools:layout="@layout/fragment_faculties" >
+        <action
+            android:id="@+id/action_facultiesFragment_to_departmentsFragment"
+            app:destination="@id/departmentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/departmentsFragment"
+        android:name="ng.com.ssic.department.DepartmentsFragment"
+        android:label="DepartmentsFragment" >
+        <argument
+            android:name="facultCode"
+            app:argType="string" />
+    </fragment>
 </navigation>

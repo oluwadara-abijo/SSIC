@@ -7,25 +7,26 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/tv_faculty_name"
+        android:id="@+id/tv_department_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_view_departments"
+        android:id="@+id/tv_view_courses"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="end"
-        android:text="View departments"
+        android:text="View courses"
         app:layout_constraintEnd_toStartOf="@id/img_arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_faculty_name" />
+        app:layout_constraintTop_toBottomOf="@id/tv_department_name" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_arrow"
@@ -33,5 +34,5 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_view_departments" />
+        app:layout_constraintTop_toTopOf="@id/tv_view_courses" />
 </androidx.constraintlayout.widget.ConstraintLayout>
