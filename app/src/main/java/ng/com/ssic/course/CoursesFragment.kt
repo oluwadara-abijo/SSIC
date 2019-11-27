@@ -99,7 +99,7 @@ class CoursesFragment : Fragment() {
     }
 
     private fun displayMessage(text: String) {
-        Snackbar.make(progressBar, text, Snackbar.LENGTH_SHORT)
+        Snackbar.make(progressBar, text, Snackbar.LENGTH_SHORT).show()
     }
 
 
