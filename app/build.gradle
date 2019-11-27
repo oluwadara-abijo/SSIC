@@ -10,7 +10,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "ng.com.elta.ssic"
+        applicationId "ng.com.ssic"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

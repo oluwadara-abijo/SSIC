@@ -1,4 +1,4 @@
-package ng.com.elta.ssic
+package ng.com.ssic.ssic
 
 import org.junit.Test
 

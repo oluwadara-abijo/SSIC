@@ -1,4 +1,4 @@
-package ng.com.elta.ssic
+package ng.com.ssic.ssic
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

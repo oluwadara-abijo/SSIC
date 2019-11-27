@@ -1,7 +1,8 @@
-package ng.com.elta.ssic
+package ng.com.ssic
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ng.com.ssic.ssic.R
 
 class MainActivity : AppCompatActivity() {
 
