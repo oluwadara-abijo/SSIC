@@ -1,4 +1,4 @@
-package ng.com.ssic.department
+package ng.com.ssic.course
 
 
 import android.os.Bundle
@@ -17,8 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import ng.com.ssic.MainViewModel
 import ng.com.ssic.R
-import ng.com.ssic.faculty.FacultiesFragmentDirections
-import ng.com.ssic.model.Department
+import ng.com.ssic.model.Course
 import ng.com.ssic.network.NetworkUtils
 import ng.com.ssic.network.hideLoading
 import ng.com.ssic.network.isNetworkAvailable
@@ -27,24 +26,22 @@ import ng.com.ssic.network.showLoading
 /**
  * A simple [Fragment] subclass.
  */
-class DepartmentsFragment : Fragment(),
-    DepartmentsListAdapter.ItemClickListener {
+class CoursesFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private val args: DepartmentsFragmentArgs by navArgs()
+    private val args: CoursesFragmentArgs by navArgs()
 
     //UI elements
     private lateinit var navController: NavController
     private lateinit var progressBar: View
     private lateinit var recyclerView: RecyclerView
 
-    // List of Departments
-    private var departments: List<Department> = ArrayList()
+    // List of courses
+    private var courses: List<Course> = ArrayList()
 
-    private lateinit var facultyCode : String
+    private lateinit var departmentCode: String
 
-    private val departmentsListAdapter =
-        DepartmentsListAdapter(departments, this)
+    private lateinit var coursesListAdapter: CoursesListAdapter
 
     private lateinit var networkUtils: NetworkUtils
 
@@ -53,7 +50,7 @@ class DepartmentsFragment : Fragment(),
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_departments, container, false)
+        return inflater.inflate(R.layout.fragment_courses, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,26 +59,28 @@ class DepartmentsFragment : Fragment(),
         //Initialise UI elements
         navController = findNavController()
         progressBar = view.findViewById(R.id.pb_loading_indicator)
-        recyclerView = view.findViewById(R.id.rv_departments)
+        recyclerView = view.findViewById(R.id.rv_courses)
 
         networkUtils = NetworkUtils(activity, progressBar)
 
-        facultyCode = args.facultyCode
+        departmentCode = args.departmentCode
+
+        coursesListAdapter = CoursesListAdapter(courses, context!!)
 
         setupRecyclerView()
-        getDepartments()
+        getCourses()
     }
 
-    private fun getDepartments() {
+    private fun getCourses() {
         //Check if network is available
         if (networkUtils.isNetworkAvailable()) {
             networkUtils.showLoading()
-            viewModel.getDepartmentByFaculty(facultyCode).observe(this, Observer { response ->
-                departments = response
-                if (departments.isEmpty()) {
+            viewModel.getCoursesByDepartment(departmentCode).observe(this, Observer { response ->
+                courses = response
+                if (courses.isEmpty()) {
                     displayMessage("No data to display")
                 }
-                departmentsListAdapter.setDepartments(departments)
+                coursesListAdapter.setCourses(courses)
                 networkUtils.hideLoading()
             })
         } else {
@@ -92,7 +91,7 @@ class DepartmentsFragment : Fragment(),
     private fun setupRecyclerView() {
         //Set up recycler view
         val layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = departmentsListAdapter
+        recyclerView.adapter = coursesListAdapter
         recyclerView.layoutManager = layoutManager
         val itemDecoration = DividerItemDecoration(recyclerView.context, layoutManager.orientation)
         recyclerView.addItemDecoration(itemDecoration)
@@ -101,11 +100,6 @@ class DepartmentsFragment : Fragment(),
 
     private fun displayMessage(text: String) {
         Snackbar.make(progressBar, text, Snackbar.LENGTH_SHORT)
-    }
-
-    override fun onItemClick(department: Department) {
-        val action = DepartmentsFragmentDirections.actionDepartmentsFragmentToCoursesFragment(department.code)
-        navController.navigate(action)
     }
 
 

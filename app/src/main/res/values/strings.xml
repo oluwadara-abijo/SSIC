@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SSIC</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="course_units"> \%1$d\ units</string>
+
+
 </resources>

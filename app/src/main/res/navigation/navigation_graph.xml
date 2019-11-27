@@ -19,7 +19,18 @@
         android:name="ng.com.ssic.department.DepartmentsFragment"
         android:label="DepartmentsFragment" >
         <argument
-            android:name="facultCode"
+            android:name="facultyCode"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_departmentsFragment_to_coursesFragment"
+            app:destination="@id/coursesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coursesFragment"
+        android:name="ng.com.ssic.course.CoursesFragment"
+        android:label="CoursesFragment" >
+        <argument
+            android:name="departmentCode"
             app:argType="string" />
     </fragment>
 </navigation>

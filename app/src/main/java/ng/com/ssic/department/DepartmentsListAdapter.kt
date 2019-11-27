@@ -29,7 +29,7 @@ class DepartmentsListAdapter(
 
     //Class to handle item clicks
     interface ItemClickListener {
-        fun onItemClick(Department: Department)
+        fun onItemClick(department: Department)
     }
 
     inner class DepartmentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),

@@ -1,5 +1,6 @@
 package ng.com.ssic
 
+import ng.com.ssic.model.Course
 import ng.com.ssic.model.Department
 import ng.com.ssic.model.Faculty
 import ng.com.ssic.network.SSICClient
@@ -17,4 +18,7 @@ class Repository {
 
     suspend fun getDepartmentByFaculty(facultyCode : String): List<Department> =
         service.getDepartmentByFaculty(facultyCode)
+
+    suspend fun getCoursesByDepartment(departmentCode : String): List<Course> =
+        service.getCoursesByDepartment(departmentCode)
 }
