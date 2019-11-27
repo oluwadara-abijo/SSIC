@@ -1,6 +1,6 @@
 package ng.com.ssic.network
 
-import ng.com.ssic.Faculty
+import ng.com.ssic.model.Faculty
 import retrofit2.http.GET
 
 /**

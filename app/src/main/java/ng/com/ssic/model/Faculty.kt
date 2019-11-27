@@ -1,4 +1,4 @@
-package ng.com.ssic
+package ng.com.ssic.model
 
 /**
  * This models the faculty object returned from the server

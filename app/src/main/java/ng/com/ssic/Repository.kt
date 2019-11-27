@@ -1,5 +1,6 @@
 package ng.com.ssic
 
+import ng.com.ssic.model.Faculty
 import ng.com.ssic.network.SSICClient
 import ng.com.ssic.network.SSICService
 

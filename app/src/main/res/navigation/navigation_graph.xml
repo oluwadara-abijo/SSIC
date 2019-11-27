@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/facultiesFragment"
-        android:name="ng.com.ssic.FacultiesFragment"
+        android:name="ng.com.ssic.faculty.FacultiesFragment"
         android:label="fragment_faculties"
         tools:layout="@layout/fragment_faculties" />
 </navigation>

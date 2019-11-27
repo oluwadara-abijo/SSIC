@@ -1,4 +1,4 @@
-package ng.com.ssic
+package ng.com.ssic.faculty
 
 
 import android.os.Bundle
@@ -14,11 +14,18 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import ng.com.ssic.*
+import ng.com.ssic.model.Faculty
+import ng.com.ssic.network.NetworkUtils
+import ng.com.ssic.network.hideLoading
+import ng.com.ssic.network.isNetworkAvailable
+import ng.com.ssic.network.showLoading
 
 /**
  * A simple [Fragment] subclass.
  */
-class FacultiesFragment : Fragment(), FacultiesListAdapter.ItemClickListener {
+class FacultiesFragment : Fragment(),
+    FacultiesListAdapter.ItemClickListener {
 
     private val viewModel: MainViewModel by activityViewModels()
 
@@ -30,7 +37,8 @@ class FacultiesFragment : Fragment(), FacultiesListAdapter.ItemClickListener {
     // List of faculties
     private var faculties: List<Faculty> = ArrayList()
 
-    private val facultiesListAdapter = FacultiesListAdapter(faculties, this)
+    private val facultiesListAdapter =
+        FacultiesListAdapter(faculties, this)
 
     private lateinit var networkUtils: NetworkUtils
 

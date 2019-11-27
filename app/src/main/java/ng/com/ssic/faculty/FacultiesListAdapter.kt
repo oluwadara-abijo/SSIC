@@ -1,10 +1,12 @@
-package ng.com.ssic
+package ng.com.ssic.faculty
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_item_faculty.view.*
+import ng.com.ssic.R
+import ng.com.ssic.model.Faculty
 
 class FacultiesListAdapter(private var faculties: List<Faculty>, private val clickListener: ItemClickListener) :
     RecyclerView.Adapter<FacultiesListAdapter.FacultyViewHolder>() {

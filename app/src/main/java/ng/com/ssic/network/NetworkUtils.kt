@@ -1,4 +1,4 @@
-package ng.com.ssic
+package ng.com.ssic.network
 
 import android.content.Context
 import android.net.ConnectivityManager
