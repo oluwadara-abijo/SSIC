@@ -1,4 +1,4 @@
-package ng.com.ssic
+package ng.com.ssic.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
