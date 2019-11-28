@@ -1,5 +1,6 @@
 package ng.com.ssic.network
 
+import ng.com.ssic.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -29,7 +30,7 @@ object SSICClient {
         return OkHttpClient.Builder()
             .addInterceptor(getLoggingInterceptor())
             .addInterceptor {
-                val request = it.request().newBuilder().addHeader("appkey", "olukRL0vvSeR9Mu4rin7WqSWwOVBmWnROq").build()
+                val request = it.request().newBuilder().addHeader("appkey", BuildConfig.APP_KEY).build()
                 it.proceed(request)
             }
             .connectTimeout(2, TimeUnit.MINUTES)
