@@ -4,9 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import kotlinx.coroutines.Dispatchers
-import ng.com.ssic.model.Course
-import ng.com.ssic.model.Department
-import ng.com.ssic.model.Faculty
+import ng.com.ssic.model.*
 
 class MainViewModel : ViewModel() {
     private val repository = Repository()
@@ -26,6 +24,12 @@ class MainViewModel : ViewModel() {
     fun getCoursesByDepartment(departmentCode : String): LiveData<List<Course>> =
         liveData(Dispatchers.IO) {
             val response = repository.getCoursesByDepartment(departmentCode)
+            emit(response)
+        }
+
+    fun registerStudent(newStudent: NewStudent): LiveData<RollNumber> =
+        liveData(Dispatchers.IO) {
+            val response = repository.registerStudent(newStudent)
             emit(response)
         }
 }

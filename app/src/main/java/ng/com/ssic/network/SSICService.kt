@@ -1,8 +1,7 @@
 package ng.com.ssic.network
 
-import ng.com.ssic.model.Course
-import ng.com.ssic.model.Department
-import ng.com.ssic.model.Faculty
+import ng.com.ssic.model.*
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -19,4 +18,7 @@ interface SSICService {
 
     @GET("departments/{code}/courses")
     suspend fun getCoursesByDepartment(@Path("code") departmentCode: String): List<Course>
+
+    @GET("students")
+    suspend fun registerStudent(@Body newStudent: NewStudent): RollNumber
 }
